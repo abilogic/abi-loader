@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Zombler Test</title>
+  <script src="./src/abi-loader.min.js"></script>
+  <script async src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous" onLoad="abi_done('jquery')"></script>
+ </head>
+ <body>
+  <script>
+   abi_onload('jquery dom', function(){
+   	 alert('jQuery Loaded!');
+   });
+  </script>
+ </body>
+</html>
