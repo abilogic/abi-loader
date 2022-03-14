@@ -10,7 +10,7 @@ It is possible to load scripts in pre-defined order by setting script dependenci
 The script must be loaded synchronously before any other script or included as inline script in the head section of your web page.
 Example of including the file abi-loader.min.js in the head section:
 
-```
+```html
 <head>
  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
  <script src="./src/abi-loader.min.js"></script>
@@ -19,7 +19,7 @@ Example of including the file abi-loader.min.js in the head section:
 
 For example, we want to load jquery asynchronously and after it loads the dependent plugins.
 
-```
+```html
 <head>
  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
  <script src="./src/abi-loader.min.js"></script>
@@ -30,7 +30,7 @@ For example, we want to load jquery asynchronously and after it loads the depend
 The function `abi_done()` registers the download of the jquery script under the name `"jquery"`.
 Then anywhere we can call the function `abi_onload` that performs an action as soon as the downloading of files from the list finishes.
 
-```
+```html
 <script>
  abi_onload('jquery', function(){
   alert('jQuery is loaded!');
@@ -40,7 +40,7 @@ Then anywhere we can call the function `abi_onload` that performs an action as s
 
 You can wait for multiple files to load by specifying a space-seprated list of required modules.
 
-```
+```html
 <script>
  abi_onload('jquery load-images', function(){
   alert('jQuery and load-images scripts are loaded!');
@@ -50,7 +50,7 @@ You can wait for multiple files to load by specifying a space-seprated list of r
 
 If you need to wait until the DOM is loaded before loading the scripts, use the reserved word `dom`:
 
-```
+```html
 <script>
  abi_onload('jquery dom', function(){
   alert('jQuery and DOM are loaded!');
@@ -60,7 +60,7 @@ If you need to wait until the DOM is loaded before loading the scripts, use the 
 
 You can asynchronously load another script:
 
-```
+```html
 <script>
  abi_onload('jquery', function(){
   loadScript('https://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.js', 'jQueryMobile');
@@ -74,7 +74,7 @@ You can asynchronously load another script:
 
 You can use callback function in `loadScript` function:
 
-```
+```html
 <script>
  abi_onload('jquery', function(){
   loadScript('https://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.js', 'jQueryMobile', function(){
@@ -87,7 +87,7 @@ You can use callback function in `loadScript` function:
 You can also load CSS files asynchronously and make other scripts depend on it.
 To do this, the CSS file must be loaded like this:
 
-```
+```html
 <head>
  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
  <script src="./src/abi-loader.min.js"></script>
@@ -98,7 +98,7 @@ To do this, the CSS file must be loaded like this:
 
 Now you can execute the code when the jQuery and main.css files are loaded:
 
-```
+```html
 <script>
  abi_onload('jquery main.css', function(){
    alert('jQuery and main.css are loaded!');
@@ -108,7 +108,7 @@ Now you can execute the code when the jQuery and main.css files are loaded:
 
 As an extra feature, the script adds classes to the html tag to make coding simple. For example:
 
-```
+```html
 <html lang="en" id="zombler" class="webp font-roboto w2 no-wide medium">
 ```
 
@@ -130,7 +130,7 @@ List of classes:
 
 Use these classes in your css files as shown below:
 
-```
+```css
 html.w1 div.btn {
   background:blue;
 }
